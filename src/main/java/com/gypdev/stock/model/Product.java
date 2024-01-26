@@ -1,9 +1,6 @@
 package com.gypdev.stock.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -16,8 +13,10 @@ public class Product {
     private String name;
     private String description;
     private Double price;
-
     private int stock;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Inventory inventory;
 
     //Constructor
     public Product() {
@@ -66,6 +65,15 @@ public class Product {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
     //Methods
     public void updateStock(int quantity){
         stock += quantity;

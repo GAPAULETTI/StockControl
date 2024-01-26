@@ -1,35 +1,42 @@
 package com.gypdev.stock.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-
+@Entity
 public class Inventory {
 
-    private Map<String, Product> productMap;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
+    @GenericGenerator(name = "native")
+    private Long id;
+    @OneToMany(mappedBy = "inventory", fetch = FetchType.EAGER)
+    private Set<Product> products;
 
     public  Inventory(){
-        productMap = new HashMap<>();
+        products = new HashSet<>();
     }
 
-
-
-    public void addProduct(String name, String description, Double price, int stock){
-        Product product = new Product(name, description, price, stock);
-        productMap.put(name, product);
+    public Long getId() {
+        return id;
     }
-    public void updateStock(String productName, int quantity){
-        Product product = productMap.get(productName);
-        if (product != null){
-            product.updateStock(quantity);
-        } else {
-            System.out.println("Product not found: " + productName);
-        }
+
+    public Set<Product> getProducts() {
+        return products;
     }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
+
+    public void addProduct(Product product){
+        product.setInventory(this);
+        products.add(product);
+    }
+
 }
