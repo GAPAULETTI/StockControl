@@ -1,20 +1,33 @@
 package com.gypdev.stock.model;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
+@Entity
 public class Product {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native")
+    private Long id;
     private String name;
     private String description;
     private Double price;
+    private int stock;
 
     //Constructor
     public Product() {
     }
 
+    public Product(String name, String description, Double price, int stock) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
+    }
     //Getter&Setter
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -41,6 +54,17 @@ public class Product {
     public void setPrice(Double price) {
         this.price = price;
     }
-    //Methods
 
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    //Methods
+    public void updateStock(int quantity){
+        stock += quantity;
+    }
 }
