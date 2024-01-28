@@ -15,9 +15,6 @@ public class Product {
     private Double price;
     private int stock;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Inventory inventory;
-
     //Constructor
     public Product() {
     }
@@ -64,14 +61,6 @@ public class Product {
 
     public void setStock(int stock) {
         this.stock = stock;
-    }
-
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Inventory inventory) {
-        this.inventory = inventory;
     }
 
     //Methods

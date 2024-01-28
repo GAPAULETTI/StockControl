@@ -12,7 +12,7 @@ public class ProductDTO {
     private String description;
     private Double price;
     private int stock;
-    private Inventory inventory;
+
 
     public ProductDTO(Product product){
         this.id = product.getId();
@@ -42,7 +42,4 @@ public class ProductDTO {
         return stock;
     }
 
-    public Inventory getInventory() {
-        return inventory;
-    }
 }
