@@ -23,9 +23,9 @@ public class StockApplication {
 
 		return (args -> {
 
-			Product product1 = new Product("Escoba", "Larga|Sintetica", 99.0, 10);
-			Product product2 = new Product("Pala", "Larga|Acero", 120.0, 20);
-			Product product3 = new Product("Tacho", "Largo|Plastico", 300.0, 10);
+			Product product1 = new Product(generateCode(),"Escoba", "Larga|Sintetica", 99.0, 10, "escoba.jpg");
+			Product product2 = new Product(generateCode(),"Pala", "Larga|Acero", 120.0, 20,"pala.webp");
+			Product product3 = new Product(generateCode(),"Tacho", "Largo|Plastico", 300.0, 10,"tacho.jpeg");
 
 			System.out.println(generateCode());
 

@@ -8,18 +8,22 @@ import jakarta.persistence.ManyToOne;
 public class ProductDTO {
 
     private Long id;
+    private String code;
     private String name;
     private String description;
     private Double price;
     private int stock;
+    private String image;
 
 
     public ProductDTO(Product product){
         this.id = product.getId();
+        this.code = product.getCode();
         this.name = product.getName();
         this.description = product.getDescription();
         this.price = product.getPrice();
         this.stock = product.getStock();
+        this.image = product.getImage();
     }
 
     public Long getId() {
@@ -42,4 +46,11 @@ public class ProductDTO {
         return stock;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }

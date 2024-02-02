@@ -16,7 +16,7 @@ public class Util {
     }
     public static String generateCode(){
         int randomNum = (int)(Math.floor(Math.random()*(9999-0000+1)+0000));
-        String codigo = generateAlpha() + randomNum;
+        String codigo = generateAlpha().toUpperCase() + "-" + randomNum;
 
         return codigo;
     }
