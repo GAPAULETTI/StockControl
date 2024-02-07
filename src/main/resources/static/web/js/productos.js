@@ -2,6 +2,7 @@ Vue.createApp({
     data(){
     return {
             productsInfo: {},
+            productList: [],
             errorToats: null,
             errorMsg: null,
     }
@@ -12,6 +13,8 @@ Vue.createApp({
             axios.get("/api/products")
                 .then((response) => {
                     this.productsInfo = response.data;
+                    console.log(response.data)
+
 
                 })
                 .catch((error)=> {
