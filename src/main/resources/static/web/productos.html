@@ -78,11 +78,12 @@
     </div>
     <main>
         <div v-for="product in productsInfo" class="card" style="width: 18rem;">
-            <img src="./img/\{{product.image}}\" class="card-img-top" alt="...">
+            <img src="" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.description}}</p>
-                <a href="#" class="btn btn-primary">{{product.image}}</a>
+                <input type="number" id="stock" placeholder="{{product.quantity}}">
+                <a href="#" class="btn btn-primary">Actualizar</a>
             </div>
         </div>
     </main>
