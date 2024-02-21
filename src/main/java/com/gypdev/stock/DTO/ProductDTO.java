@@ -5,6 +5,8 @@ import com.gypdev.stock.model.Product;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 
+import java.awt.*;
+
 public class ProductDTO {
 
     private Long id;
@@ -13,7 +15,7 @@ public class ProductDTO {
     private String description;
     private Double price;
     private int stock;
-    private String image;
+    private String pathImage;
 
 
     public ProductDTO(Product product){
@@ -23,7 +25,7 @@ public class ProductDTO {
         this.description = product.getDescription();
         this.price = product.getPrice();
         this.stock = product.getStock();
-        this.image = product.getImage();
+        this.pathImage = product.getPathImage();
     }
 
     public Long getId() {
@@ -50,7 +52,7 @@ public class ProductDTO {
         return code;
     }
 
-    public String getImage() {
-        return image;
+    public String getPathImage() {
+        return pathImage;
     }
 }

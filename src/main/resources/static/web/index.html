@@ -43,11 +43,13 @@
             <table class="table table-sm-info table-responsive table-striped table-hover table-bordered w-75">
                 <thead>
                 <tr>
-                    <th scope="col">id</th>
+                    <th scope="col">Code</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Action</th>
+
                    
                     
                 </tr>
@@ -59,7 +61,8 @@
                     <td>{{product.description}}</td>
                     <td>$ {{product.price}}</td>
                     <td>{{product.stock}}</td>
-                    
+                    <td><button class="btn btn-success">Actualizar</button></td>
+
                 </tr>
 
                 </tbody>

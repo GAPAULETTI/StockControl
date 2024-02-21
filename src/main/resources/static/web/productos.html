@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -77,15 +77,26 @@
         </nav>
     </div>
     <main>
-        <div v-for="product in productsInfo" class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="...">
+
+        <div class="d-flex flex-row justify-content-evenly">
+
+            <div v-for="product in productsInfo" class="card" style="width: 18rem;">
+
+            <img v-bind:src="product.pathImage" class="card-img-top" width="40" height="180" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.description}}</p>
-                <input type="number" id="stock" placeholder="{{product.quantity}}">
+                <input type="number" id="stock">
+                <p>Cantidad total: {{product.stock}} </p>
                 <a href="#" class="btn btn-primary">Actualizar</a>
+                {{product.image}}
+
+            </div>
             </div>
         </div>
+
+
+
     </main>
 
 
