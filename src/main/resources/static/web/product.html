@@ -30,13 +30,13 @@
             <form action="" @submit.prevent="submitForm" method="post" enctype="multipart/form-data">
             <div class="form-group-row">
                 <label class="col-md-2">Nombre:</label>
-                <input type="text" id="name" v-model="productName" class="form-control">
+                <input type="text" id="name" v-model="formData.name" class="form-control">
                 <label class="col-md-2">Description</label>
-                <input type="text" id="description" v-model="productDescription" class="form-control">
+                <input type="text" id="description" v-model="formData.description" class="form-control">
                 <label class="col-md-2">Price</label>
-                <input type="number" id="price" v-model="productPrice" class="form-control">
+                <input type="number" id="price" v-model="formData.price" class="form-control">
                 <label class="col-md-2">Stock</label>
-                <input type="number" id="stock" v-model="productStock" class="form-control">
+                <input type="number" id="stock" v-model="formData.stock" class="form-control">
                 <label for="image">Image:</label>
                 <input type="file" id="image" ref="uploadImage"  @change="handleImageUpload()" required>
 
@@ -53,6 +53,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
-        <script src="./js/product.js"></script>
+        <script src="./js/createProduct.js"></script>
 </body>
 </html>

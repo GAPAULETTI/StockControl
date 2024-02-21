@@ -25,7 +25,7 @@ Vue.createApp({
                 })
 
         },
-         handleImageUpload() {
+         onImageUpload() {
               let file = this.$refs.uploadImage.files[0];
               this.image = new Image();
               this.image.append("file", file);
@@ -34,14 +34,13 @@ Vue.createApp({
         submitForm: function() {
             let config = {
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type' : 'multipart/form-data'
                 }
             }
             axios.post(`/api/products?name=${this.productName}&description=${this.productDescription}&price=${this.productPrice}&stock=${this.productStock}&image=${this.image}`,config)
             //axios.post(`/api/products?name=${this.productName}&description=${this.productDescription}&price=${this.productPrice}&stock=${this.productStock}`,config)
             .then(response => {
-                console.log(response);
+                console.log(JSON.stringify(response.data));
             }).catch(error => {
                 this.errorMsg = error.response.data;
                 this.errorToats.show();

@@ -41,10 +41,10 @@ public class ProductController {
     @Transactional
     @PostMapping("/products")
     public ResponseEntity<Object> createProduct(@RequestParam String name, @RequestParam String description,
-                                                @RequestParam Double price, @RequestParam int stock) {
+                                                @RequestParam Double price, @RequestParam int stock, @RequestParam MultipartFile image) {
 
 
-        /*if (!image.isEmpty()) {
+        if (!image.isEmpty()) {
             Path directorio = Paths.get("src//main//resources//static//web/img");
             String rutaAbs = directorio.toFile().getAbsolutePath();
 
@@ -53,18 +53,21 @@ public class ProductController {
                 Path rutaCompleta = Paths.get(rutaAbs + "//" + image.getOriginalFilename());
                 Files.write(rutaCompleta, bytesImg);
 
-                System.out.println(image.getOriginalFilename());
-
+                String imagen = "./img/" + image.getOriginalFilename();
+                Product producto = new Product(generateCode(), name, description, price, stock, imagen);
+                repoProduct.save(producto);
                 //producto.setPathImage(image.getOriginalFilename());
             } catch (IOException e) {
                 throw new RuntimeException(e);
-            }*/
-        Product producto = new Product(generateCode(), name, description, price, stock, "image.getOriginalFilename()");
-        repoProduct.save(producto);
-        return new ResponseEntity<>("The product is update", HttpStatus.ACCEPTED);
+            }
+
         }
+        return new ResponseEntity<>("The product is update", HttpStatus.ACCEPTED);
 
     }
+
+
+}
 
 
 
